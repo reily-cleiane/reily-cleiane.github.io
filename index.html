@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+<style>
+root{
+	font-size: 10%;
+}
+
+*{
+	box-sizing: border-box;
+	font-family: Helvetica Neue;
+}
+
+ul{
+	display: flex;
+	flex-wrap: wrap;
+	width: 99%;
+	justify-content: start;
+}
+
+ul li{
+	font-size: 0.8rem;
+	list-style: none;
+	width: 20%;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	color: #555;
+	border: 0.1rem solid #ddd;
+	text-align: center;
+	cursor: pointer;
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+	justify-content: center;
+	align-content: center;
+
+}
+
+.cor_rb{
+	color: rgba(153, 102, 255, 0.8);
+	line-height: 1.8rem;
+}
+
+.cor_ro{
+	color: rgba(54, 162, 235, 0.8);
+	line-height: 1.8rem;
+}
+
+.highlight{
+	color: white;
+
+}
+
+.highlight_rb{
+	background-color: rgba(153, 102, 255, 0.8);
+	padding: 0.2rem;
+
+}
+.highlight_ro{
+	background-color: rgba(54, 162, 235, 0.8);
+	padding: 0.2rem;
+
+}
+
+section{
+	display:flex;
+	flex-wrap: wrap;
+	margin-bottom: 100px;
+}
+
+
+aside{
+	width: 25%;
+	padding-top: 10vw;
+	padding-left: 3%;
+	height: 20vh;
+}
+
+.grafico{
+	width: 70%!important;
+	height: auto !important;
+}
+
+
+#area0{
+	padding-left: 3rem;
+	padding-top: 1rem;
+	color: #555;
+}
+
+#servicos{
+	width: 70%!important;
+	height: auto !important;
+
+}
+
+#aside0{
+	padding-top:0.1rem;
+
+}
+
+#area0 h3{
+	background-image: linear-gradient(to right,  rgba(153, 102, 255, 0.8) ,rgba(54, 162, 235, 0.8));
+	color: white;
+	padding: 0.4rem;
+
+}
+#servicos p{
+	padding-left: 2rem;
+
+}
+
+
+</style>
+
+<title>Relatório das bibliotecas</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<title>Page Title</title>
+</head>
+<body>
+
+<header>
+	<ul>
+	<li id="li1">Atendimentos - Material Informacional</li>
+	<li id="li2">Atendimentos - Armário de guarda-volumes</li>
+	<li id="li3">Atendimentos - Cadastro de usuários</li>
+	<li id="li4">Atendimentos - Outros</li>
+	<li id="li5">Aquisição de livros</li>
+	</ul>
+</header>
+
+<main>
+
+<section id="area0">
+
+	<div id="servicos">
+		<h3>Serviços básicos oferecidos</h3>
+		<p>Atendimento ao usuário;</p>
+		<p>Visita técnica;</p>
+		<p>Empréstimo domiciliar aos usuários cadastrados;</p>
+		<p>Consulta ao acervo e renovação Web;</p>
+		<p>Orientação na normalização de trabalhos científicos conforme a ABNT;</p>
+		<p>Orientação à pesquisa acadêmica na Internet</p>
+		<h3>Outros serviços</h3>
+		<p>Biblioteca Digital de TCCs do Campus</p>
+		<p>Calendário comemorativo via facebook</p>
+		<p>Dicas de leitura, mensalmente, de acordo com uma temática;</p>
+		<p>Divulgação de novas aquisições</p>
+		<h3>Eventos</h3>
+		<p>19/06/2019 – Mini curso sobre Pesquisa Acadêmica na Internet durante a Jornada Integrada de Pesquisa (JIP); 
+</p>
+		<p>23/09/2019 – Organização da VI troca de livros e IV premiação traça literária durante a comemoração de aniversário de 10 anos do Campus
+</p>
+		
+		
+		
+	</div>
+	
+	<aside id="aside0">
+		<p class="cor_rb"><span class="highlight highlight_rb">Rio Branco:</span><br>
+		Iara Celly – Bibliotecária<br>
+		Cleiane – Auxiliar<br>
+		1 Bolsista</p>
+
+		<p class="cor_ro"><span class="highlight highlight_ro">Rocas:</span><br>
+		Guilherme – Auxiliar<br>
+		Ana Iara – Estagiária<br>
+		3 Bolsistas (Rocas)</p>
+
+	</aside>
+	
+</section>
+
+<section id="grafico1">
+	<canvas id="myChart" class="grafico"></canvas>
+	<aside id="aside1">
+		<p class="cor_rb"><span class="highlight highlight_rb">Rio Branco:</span><br>
+		2467 Empréstimos<br>
+		1991 Devoluções</p>
+
+		<p class="cor_ro"><span class="highlight highlight_ro">Rocas:</span><br>
+		2615 Empréstimos<br>
+		2207 Devoluções</p>
+
+	</aside>
+	
+</section>
+
+<section id="grafico2">
+	<canvas id="myChart2" class="grafico"></canvas>
+	<aside id="aside2">
+		<p class="cor_rb"><span class="highlight highlight_rb">Rio Branco:</span><br>
+		9324 Empréstimos e Devoluções</p>
+
+		<p class="cor_ro"><span class="highlight highlight_ro">Rocas:</span><br>
+
+		10586 Empréstimos e Devoluções</p>
+
+	</aside>
+</section>
+
+
+<section id="grafico3">
+	<canvas id="myChart3" class="grafico"></canvas>
+	<aside id="aside3">
+		<p class="cor_rb"><span class="highlight highlight_rb">Rio Branco:</span><br>
+		237 Cadastros de usuários</p>
+
+		<p class="cor_ro"><span class="highlight highlight_ro">Rocas:</span><br>
+
+		156 Cadastros de usuários</p>
+
+	</aside>
+</section>
+
+
+<section id="grafico4">
+	<canvas id="myChart4" class="grafico"></canvas>
+	
+	<aside id="aside4">
+		<p class="cor_rb"><span class="highlight highlight_rb">Rio Branco:</span><br>
+		3 Palestras de normalização<br>
+		4 Palestras de pesquisa eletrônica<br>
+		19 Orientações de normalização<br>
+		39 Atendimentos em entregas de TCCs<br>
+		? Quitação/nada consta de usuários</p>
+		
+		<p class="cor_ro"><span class="highlight highlight_ro">Rocas:</span><br>
+
+		? Quitação/nada consta de usuários<br>
+		</p>
+
+	</aside>	
+</section>
+
+
+<section id="grafico5">
+	<canvas id="myChart5" class="grafico"></canvas>
+	<aside id="aside5">
+		<p class="cor_rb"><span class="highlight highlight_rb">Rio Branco:</span><br>
+		142 Títulos (3298 - total no acervo)<br>
+		370 Exemplares (8494 - total no acervo)</p>
+
+		<p class="cor_ro"><span class="highlight highlight_ro">Rocas:</span><br>
+		184 Títulos (2618 - total no acervo)<br>
+		369 Exemplares (6673 - total no acervo)</p>
+
+	</aside>
+	
+</section>
+
+
+</main>
+
+
+<script>
+
+ //http://www.chartjs.org/docs/#doughnut-pie-chart-introduction
+
+ 
+Chart.defaults.global.defaultFontSize = 20;
+Chart.defaults.global.defaultFontColor = "#555";
+
+
+function chamarGrafico1(){
+
+var barChartData = {
+	labels: ['Empréstimos', 'Devoluções'],
+	datasets: [{
+		label: 'Rio Branco ',
+		backgroundColor: 'rgba(153, 102, 255, 0.2)',
+		borderColor: 'rgba(153, 102, 255, 1)',
+		borderWidth: 1,
+		data: [ 2467, 1991
+		]
+	},
+	
+	{
+		label: 'Rocas ',
+		backgroundColor: 'rgba(54, 162, 235, 0.3)',
+		borderColor: 'rgba(54, 162, 235,1)',
+		borderWidth: 1,
+		data: [2615, 2207
+		]
+	}]
+};
+
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+	data: barChartData,
+    options: {
+	
+		tooltips:{
+			xPadding: 15,
+			yPadding: 15,
+			titleFontSize: 20,
+			bodyFontSize: 20
+		},
+		
+		title: {
+				display: true,
+				padding: 30,
+				fontSize: 30,
+				text: 'Atendimentos nas bibliotecas em 2019 (Material Informacional)',
+
+		},
+		
+		legend: {
+				display: true,
+				position: "top",
+				labels: {
+					fontColor: '#555',
+					fontSize: 20,
+					padding: 10
+				}
+		},
+	
+        scales: {
+		
+			scaleLabel:{
+				display: true,
+				fontSize: 20,
+				labelString: "teste"
+			},
+			
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+					fontSize: 20
+                }
+            }]
+        }
+    }
+});
+}
+
+
+//==========================================================================
+function chamarGrafico2(){
+var barChartData2 = {
+	labels: ['Empréstimos e devoluções'],
+	datasets: [{
+		label: 'Rio Branco ',
+		backgroundColor: 'rgba(153, 102, 255, 0.2)',
+		borderColor: 'rgba(153, 102, 255, 1)',
+		borderWidth: 1,
+		data: [ 9324
+		]
+	},
+	
+	{
+		label: 'Rocas ',
+		backgroundColor: 'rgba(54, 162, 235, 0.3)',
+		borderColor: 'rgba(54, 162, 235,1)',
+		borderWidth: 1,
+		data: [ 10586
+		]
+	}]
+};
+
+var ctx2 = document.getElementById('myChart2').getContext('2d');
+var myChart2 = new Chart(ctx2, {
+    type: 'bar',
+	data: barChartData2,
+    options: {
+	
+		tooltips:{
+			xPadding: 15,
+			yPadding: 15,
+			titleFontSize: 20,
+			bodyFontSize: 20
+		},
+		
+		title: {
+				display: true,
+				padding: 30,
+				fontSize: 30,
+				text: 'Atendimentos nas bibliotecas em 2019 (Armário de Guarda-volumes)',
+
+		},
+		
+		legend: {
+				display: true,
+				position: "top",
+				labels: {
+					fontColor: '#555',
+					fontSize: 20,
+					padding: 10
+				}
+		},
+	
+        scales: {
+			
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+					fontSize: 20
+                }
+            }]
+        }
+    }
+});
+}
+
+//=========================================================================
+
+function chamarGrafico3(){
+	var barChartData3 = {
+		labels: ['Cadastro de novos usuários'],
+		datasets: [{
+			label: 'Rio Branco ',
+			backgroundColor: 'rgba(153, 102, 255, 0.2)',
+			borderColor: 'rgba(153, 102, 255, 1)',
+			borderWidth: 1,
+			data: [ 237
+			]
+		},
+		
+		{
+			label: 'Rocas ',
+			backgroundColor: 'rgba(54, 162, 235, 0.3)',
+			borderColor: 'rgba(54, 162, 235,1)',
+			borderWidth: 1,
+			data: [ 156
+			]
+		}]
+	};
+
+	var ctx3 = document.getElementById('myChart3').getContext('2d');
+	var myChart3 = new Chart(ctx3, {
+		type: 'bar',
+		data: barChartData3,
+		options: {
+		
+			tooltips:{
+				xPadding: 15,
+				yPadding: 15,
+				titleFontSize: 20,
+				bodyFontSize: 20
+			},
+			
+			title: {
+					display: true,
+					padding: 30,
+					fontSize: 30,
+					text: 'Atendimentos nas bibliotecas em 2019 (Cadastro de usuários)',
+
+			},
+			
+			legend: {
+					display: true,
+					position: "top",
+					labels: {
+						fontColor: '#555',
+						fontSize: 20,
+						padding: 10
+					}
+			},
+		
+			scales: {
+				
+				yAxes: [{
+					ticks: {
+						beginAtZero: true,
+						fontSize: 20
+					}
+				}]
+			}
+		}
+});
+
+
+
+
+
+}
+
+
+//==========================================================================
+function chamarGrafico4(){
+
+var barChartData4 = {
+	labels: ['Palestras de normalização', 'Palestras de pesquisa eletrônica', 'Orientações de normalização', 'Atendimentos em entregas TCCs'],
+	datasets: [{
+		label: 'Rio Branco ',
+		backgroundColor: 'rgba(153, 102, 255, 0.2)',
+		borderColor: 'rgba(153, 102, 255, 1)',
+		borderWidth: 1,
+		data: [ 3,4,19,39
+		]
+	}
+	
+]
+};
+
+var ctx4 = document.getElementById('myChart4').getContext('2d');
+var myChart4 = new Chart(ctx4, {
+    type: 'bar',
+	data: barChartData4,
+    options: {
+	
+		tooltips:{
+			xPadding: 15,
+			yPadding: 15,
+			titleFontSize: 20,
+			bodyFontSize: 20
+		},
+		
+		title: {
+				display: true,
+				padding: 30,
+				fontSize: 30,
+				text: 'Atendimentos nas bibliotecas em 2019 (Outros)',
+
+		},
+		
+		legend: {
+				display: true,
+				position: "top",
+				labels: {
+					fontColor: '#555',
+					fontSize: 20,
+					padding: 10
+				}
+		},
+	
+        scales: {
+			
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+					fontSize: 20
+                }
+            }]
+        }
+    }
+});
+}
+//============================================================
+
+function chamarGrafico5(){
+	var barChartData5 = {
+		labels: ['Títulos', 'Exemplares'],
+		datasets: [{
+			label: 'Rio Branco ',
+			backgroundColor: 'rgba(153, 102, 255, 0.2)',
+			borderColor: 'rgba(153, 102, 255, 1)',
+			borderWidth: 1,
+			data: [ 142,370
+			]
+		},
+		
+		{
+			label: 'Rocas ',
+			backgroundColor: 'rgba(54, 162, 235, 0.3)',
+			borderColor: 'rgba(54, 162, 235,1)',
+			borderWidth: 1,
+			data: [ 184,369
+			]
+		}]
+	};
+
+	var ctx5 = document.getElementById('myChart5').getContext('2d');
+	var myChart5 = new Chart(ctx5, {
+		type: 'bar',
+		data: barChartData5,
+		options: {
+		
+			tooltips:{
+				xPadding: 15,
+				yPadding: 15,
+				titleFontSize: 20,
+				bodyFontSize: 20
+			},
+			
+			title: {
+					display: true,
+					padding: 30,
+					fontSize: 30,
+					text: 'Aquisição de livros - 2019',
+
+			},
+			
+			legend: {
+					display: true,
+					position: "top",
+					labels: {
+						fontColor: '#555',
+						fontSize: 20,
+						padding: 10
+					}
+			},
+		
+			scales: {
+				
+				yAxes: [{
+					ticks: {
+						beginAtZero: true,
+						fontSize: 20
+					}
+				}]
+			}
+		}
+});
+
+
+}
+
+
+//================================ FUNÇÕES
+
+//chamarGrafico2();
+//chamarGrafico3();
+$( "section" ).hide();
+$( "#area0" ).show()
+
+
+function esconder(){
+$( "#area0" ).hide();
+$( "#grafico1" ).hide();
+$( "#grafico2" ).hide();
+$( "#grafico3" ).hide();
+$( "#grafico4" ).hide();
+$( "#grafico5" ).hide();
+
+}
+
+$(function(){
+        $("li").click(function(e){
+            e.preventDefault();
+			
+			let idli = $(this).attr('id');
+			
+			switch (idli) {
+			case 'li1':
+				esconder();
+				$( "#grafico1" ).show();
+				chamarGrafico1();
+
+			break;
+			case 'li2':
+				esconder();
+				$( "#grafico2" ).show();
+				chamarGrafico2();
+			break;
+			case 'li3':
+				esconder();
+				$( "#grafico3" ).show();
+				chamarGrafico3();
+
+			break;
+			case 'li4':
+				esconder();
+				$( "#grafico4" ).show();
+				chamarGrafico4();
+			
+			break;
+			
+			case 'li5':
+				esconder();
+				$( "#grafico5" ).show();
+				chamarGrafico5();
+			
+			break;
+
+			default:
+
+		}
+			
+			//$(this).css("display", "none");
+			//$(this).toggle();
+			//$( ".target" ).hide();
+			
+        });
+    });
+
+
+</script>
+
+</body>
+
+
+</html> 
