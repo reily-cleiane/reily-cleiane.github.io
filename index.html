@@ -516,15 +516,15 @@ function chamarGrafico4(){
 
 function chamarGrafico5(){
 	var barChartData5 = {
-		labels: ['Títulos', 'Exemplares'],
+		labels: ['Rotulo 1 ', 'Rotulo 2', 'Rotulo 3', 'Rotulo 4'],
 		datasets: [{
 			label: 'Rio Branco ',
 			backgroundColor: cor_grafico_rb,
 			borderColor: cor_grafico_borda_rb,
 			borderWidth: 1,
-			data: [ 142,370
+			data: [ 142,370, 60,80
 			]
-		},
+		}/*,
 		
 		{
 			label: 'Rocas ',
@@ -533,7 +533,7 @@ function chamarGrafico5(){
 			borderWidth: 1,
 			data: [ 184,369
 			]
-		}]
+		}]*/
 	};
 
 	var ctx5 = document.getElementById('myChart5').getContext('2d');
