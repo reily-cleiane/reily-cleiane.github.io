@@ -241,7 +241,6 @@ aside{
 <section id="grafico5">
 	<canvas id="myChart5" class="grafico"></canvas>
 	<aside id="aside5">
-		
 		<p class="cor_rb"><span class="highlight highlight_rb">Rio Branco:</span><br>
 		142 Títulos (3298 - total no acervo)<br>
 		370 Exemplares (8494 - total no acervo)</p>
@@ -516,15 +515,15 @@ function chamarGrafico4(){
 
 function chamarGrafico5(){
 	var barChartData5 = {
-		labels: ['Rotulo 1 ', 'Rotulo 2', 'Rotulo 3', 'Rotulo 4'],
+		labels: ['Títulos', 'Exemplares'],
 		datasets: [{
 			label: 'Rio Branco ',
 			backgroundColor: cor_grafico_rb,
 			borderColor: cor_grafico_borda_rb,
 			borderWidth: 1,
-			data: [ 142,370, 60,80
+			data: [ 142,370
 			]
-		}/*,
+		},
 		
 		{
 			label: 'Rocas ',
@@ -533,12 +532,12 @@ function chamarGrafico5(){
 			borderWidth: 1,
 			data: [ 184,369
 			]
-		}]*/
+		}]
 	};
 
 	var ctx5 = document.getElementById('myChart5').getContext('2d');
 	var myChart5 = new Chart(ctx5, {
-		type: 'pie',
+		type: 'bar',
 		data: barChartData5,
 		options: {
 		
